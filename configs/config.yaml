@@ -1,0 +1,43 @@
+# configs/config.yaml
+app:
+  name: GuardianAI
+  version: 1.0.0
+  debug: false
+
+database:
+  host: localhost
+  port: 5432
+  username: user
+  password: password
+  database: guardianai_db
+  pool_size: 20
+
+redis:
+  host: localhost
+  port: 6379
+  db: 0
+
+logging:
+  level: INFO
+  file: logs/guardianai.log
+
+mcp_server:
+  host: localhost
+  port: 8080
+  timeout: 30
+
+agents:
+  video_analysis:
+    enabled: true
+  threat_detection:
+    enabled: true
+  decision:
+    enabled: true
+  notification:
+    enabled: true
+  incident_report:
+    enabled: true
+
+security:
+  jwt_secret: "your-secret-key-here"
+  rate_limit_requests_per_minute: 100
