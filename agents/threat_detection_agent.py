@@ -95,27 +95,6 @@ class ThreatDetectionAgent(Agent):
             'accident': 0.7,
             'suspicious_activity': 0.65
         }
-        
-        # Track previous frames for temporal analysis
-        self.previous_frame_data = None
-        self.tracked_objects = {}
-        self.frame_count = 0
-
-    async def analyze_frame(self, frame: np.ndarray, 
-                          detections: List[Detection]) -> ThreatAssessment:
-        """
-        Analyze a single video frame for threats.
-        
-        Args:
-            frame (np.ndarray): Input video frame
-            detections (List[Detection]): Object detections from VideoAnalysisAgent
-            
-        Returns:
-            ThreatAssessment: Assessment of threats in the frame
-        """
-        try:
-            self.frame_count += 1
-            
             # Perform threat analysis on current frame and detections
             detected_threats = []
             
