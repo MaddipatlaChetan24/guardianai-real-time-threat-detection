@@ -124,34 +124,7 @@ GuardianAI/
 │
 ├── agents/             # Google ADK Agent definitions and logic
 ├── backend/            # FastAPI server, routers, and schemas
-├── frontend/           # React + Vite dashboard and UI components
-├── mcp/                # Model Context Protocol tool definitions
-├── models/             # YOLOv11 and other ML model weights
-├── database/           # SQLAlchemy models and Alembic migrations
-├── docker/             # Dockerfiles for various services
-├── configs/            # Configuration files and environment setups
-├── tests/              # Unit and integration tests
-├── tools/              # Helper scripts and utilities
-├── screenshots/        # Assets for documentation
-└── docker-compose.yml  # Main deployment configuration
-```
-
----
-
-## Kaggle Submission (Agents for Good)
-
-**Motivation:** Public and private spaces generate terabytes of video data daily, yet 99% is never analyzed until a post-incident forensic review. We built GuardianAI to shift surveillance from a passive recording tool to a proactive, intelligent guardian.
-
-**Explainability:** The system is prompted to output a "Chain of Thought" reasoning block before escalating a threat level. This ensures security operators understand *why* an alert was generated, building trust in autonomous surveillance.
-
----
-
-## Future Improvements
-
-- Audio analysis integration (e.g., breaking glass, screaming).
-- Integration with physical IoT devices (e.g., locking doors autonomously).
-- Multi-modal embeddings vector search for advanced forensic queries (e.g., "Find the person wearing a red backpack from last week").
-
+├── frontend/           # 
 ---
 
 ## License
