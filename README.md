@@ -8,7 +8,35 @@ This project demonstrates a production-quality, multi-agent AI system designed t
 
 [![Python](https://img.shields.io/badge/Python-3.11+-3776AB?logo=python&logoColor=white)](https://python.org)
 [![FastAPI](https://img.shields.io/badge/FastAPI-009688?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
-[![React](https://img.shields.io/badge/
+[![React](https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB)](https://reactjs.org/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?logo=postgresql&logoColor=white)](https://www.postgresql.org/)
+[![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white)](https://www.docker.com/)
+
+</div>
+
+---
+
+## Overview
+
+Traditional CCTV systems rely purely on continuous human monitoring. Security personnel must track multiple screens, leading to cognitive fatigue where critical incidents (unauthorized access, loitering, violence, fire) go unnoticed until it's too late.
+
+**GuardianAI** solves this by employing an autonomous ecosystem of specialized AI agents. Instead of monolithic processing, GuardianAI employs a **Micro-Agent Architecture** where each agent executes specific responsibilities and communicates over the Model Context Protocol (MCP) using a shared context and environment.
+
+---
+
+## Features
+
+| Feature | Description |
+|----------|-------------|
+| **Micro-Agent Architecture** | Specialized agents handle video analysis, threat detection, decisions, and notifications independently. |
+| **Model Context Protocol (MCP)** | Agents utilize tools (`camera_tool`, `screenshot_tool`) autonomously to verify events. |
+| **Explainable AI (XAI)** | The Decision Agent outputs a "Chain of Thought" reasoning block before escalating threat levels. |
+| **Real-Time Processing** | Asynchronous API Gateway via FastAPI handling REST and WebSockets. |
+| **Glassmorphism UI** | A beautiful, dynamic frontend built with Framer Motion, Three.js, and TailwindCSS. |
+
+---
+
+## Architecture
 
 ```mermaid
 flowchart TD
