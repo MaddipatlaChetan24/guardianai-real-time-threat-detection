@@ -105,30 +105,6 @@ class DecisionAgent(Agent):
             # Calculate overall risk score
             risk_score = self._calculate_risk_score(assessment)
             
-            # Determine decision type and priority
-            decision_type, priority_level = await self._make_decision(
-                assessment.threat_level, 
-                assessment.confidence,
-                risk_score
-            )
-            
-            # Generate action plan based on decision
-            actions = await self._generate_actions(decision_type, assessment)
-            
-            # Create execution plan
-            plan = ExecutionPlan(
-                decision=decision_type,
-                priority=priority_level,
-                confidence=assessment.confidence,
-                actions=actions,
-                timestamp=datetime.now(),
-                affected_agents=[source_agent]
-            )
-            
-            # Store in history for audit trail
-            self.decision_history.append({
-                "timestamp": plan.timestamp.isoformat(),
-                "threat_assessment": {
                     "level": assessment.threat_level,
                     "confidence": assessment.confidence,
                     "summary": assessment.summary,
