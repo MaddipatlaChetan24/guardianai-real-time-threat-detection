@@ -16,36 +16,6 @@ from google.adk.reasoning import ReasoningEngine
 from agents.threat_detection_agent import ThreatAssessment, ThreatDetection
 from tools.notification_tool import NotificationTool
 
-
-class DecisionType(Enum):
-    """Types of decisions that can be made"""
-    IGNORE = "ignore"
-    MONITOR = "monitor"
-    WARN = "warn"
-    EMERGENCY = "emergency"
-
-
-@dataclass
-class ExecutionPlan:
-    """Data class representing a plan for action execution"""
-    decision: DecisionType
-    priority: int  # 1-5 scale where 5 is highest priority
-    confidence: float  # 0.0 to 1.0
-    actions: List[str]
-    timestamp: datetime
-    affected_agents: List[str]
-
-
-@dataclass
-class IncidentReport:
-    """Data class representing a generated incident report"""
-    threat_assessment: ThreatAssessment
-    decision_plan: ExecutionPlan
-    timestamp: datetime
-    report_id: str
-    summary: str
-
-
 class DecisionAgent(Agent):
     """
     Multi-agent component that makes decisions based on inputs from all other agents.
