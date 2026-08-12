@@ -122,7 +122,38 @@ class ThreatDetectionAgent(Agent):
             # Analyze each detection for potential threat indicators
             for detection in detections:
                 threat = await self._analyze_detection(frame, detection)
-                if threat
+                if threat:
+                    detected_threats.append(threat)
+                    
+            # Apply temporal reasoning to detect behaviors like loitering or running
+            temporal_threats = await self._temporal_analysis(frame, detections)
+            detected_threats.extend(temporal_threats)
+            
+            # Generate overall assessment
+            assessment = self._generate_assessment(detected_threats)
+            
+            return assessment
+            
+        except Exception as e:
+            self.logger.error(f"Error in threat analysis: {e}")
+            raise
+
+    async def _analyze_detection(self, frame: np.ndarray, 
+                               detection: Detection) -> Optional[ThreatDetection]:
+        """
+        Analyze a single detected object for potential threats.
+        
+        Args:
+            frame (np.ndarray): Current video frame
+            detection (Detection): Detected object information
+            
+        Returns:
+            ThreatDetection or None: If threat is found, return the detection info
+        """
+        try:
+            # Get bounding box coordinates
+            x1, y1, x2, y2 = detection.bbox
+            center_x = (x1 + x2) // 2
             center_y = (y1 + y2) // 2
             
             # Convert to relative coordinates for consistency
