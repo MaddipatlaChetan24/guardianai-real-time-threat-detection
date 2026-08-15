@@ -49,6 +49,21 @@ class IncidentReport:
     suggested_action: str
     screenshot_path: Optional[str]
     camera_id: str
+    location: str
+    severity_score: float
+    
+    def to_dict(self) -> Dict[str, Any]:
+        return {
+            "id": self.id,
+            "timestamp": self.timestamp.isoformat(),
+            "threat_level": self.threat_level,
+            "detected_objects": [obj.to_dict() for obj in self.detected_objects],
+            "summary": self.summary,
+            "suggested_action": self.suggested_action,
+            "screenshot_path": self.screenshot_path,
+            "camera_id": self.camera_id,
+            "location": self.location,
+            "severity_score": self.severity_score
         }
 
 
