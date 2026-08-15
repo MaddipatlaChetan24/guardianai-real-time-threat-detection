@@ -20,11 +20,6 @@ from reportlab.lib.pagesizes import letter
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image as ReportLabImage
 from reportlab.lib.styles import getSampleStyleSheet
 
-# Google ADK imports
-from google_adk.agent import Agent
-from google_adk.memory import Memory
-from google_adk.reasoning_engine import ReasoningEngine
-from google_adk.tool_call import ToolCall, ToolResult
 
 
 @dataclass
