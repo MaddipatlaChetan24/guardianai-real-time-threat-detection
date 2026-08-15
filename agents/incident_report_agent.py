@@ -70,7 +70,19 @@ class IncidentReport:
 class IncidentReportAgent(Agent):
     """Handles generation and management of incident reports."""
     
- 
+    def __init__(self, config: Optional[Dict[str, Any]] = None):
+        super().__init__(
+            name="IncidentReportAgent",
+            description="Generates detailed security incident reports including PDFs.",
+            tools=[],
+            memory=Memory(),
+            reasoning_engine=ReasoningEngine()
+        )
+        
+        # Logging setup
+        self.logger = logging.getLogger(__name__)
+        self.logger.setLevel(logging.INFO)
+        
         # Configuration settings
         self.config = config or {}
         self.report_dir = Path(self.config.get("report_directory", "reports"))
