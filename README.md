@@ -13,26 +13,7 @@ This project demonstrates a production-quality, multi-agent AI system designed t
 
 
     subgraph "Micro-Agent Ecosystem (Google ADK & MCP)"
-        VideoAgent["Video Analysis Agent<br>(YOLOv11 & DeepSORT)"]
-        ThreatAgent["Threat Detection Agent<br>(Gemini Reasoning)"]
-        DecisionAgent["Decision Orchestrator<br>(Threat Score 0-100)"]
-        NotifyAgent["Notification Agent"]
-        ReportAgent["Incident Report Agent"]
-    end
-
-    subgraph Backend
-        Gateway["FastAPI Gateway<br>(REST & WebSockets)"]
-        DB[(PostgreSQL & Redis)]
-    end
-
-    subgraph Frontend
-        Dashboard["React Dashboard<br>(Three.js & GSAP)"]
-    end
-
-    CCTV --> VideoAgent
-    VideoAgent --> ThreatAg
-
-Start the application using Docker Compose:
+        VideoAg
 
 ```bash
 docker-compose up --build -d
