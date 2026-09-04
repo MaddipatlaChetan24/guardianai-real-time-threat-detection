@@ -57,48 +57,7 @@ flowchart TD
     end
 
     CCTV --> VideoAgent
-    VideoAgent --> ThreatAgent
-    ThreatAgent --> DecisionAgent
-    DecisionAgent --> NotifyAgent
-    DecisionAgent --> ReportAgent
-
-    VideoAgent -.-> Gateway
-    ThreatAgent -.-> Gateway
-    DecisionAgent -.-> Gateway
-
-    Gateway <--> DB
-    Gateway <--> Dashboard
-```
-
----
-
-## Tech Stack
-
-- **AI/ML:** YOLOv11, OpenCV, Gemini Pro, Google ADK
-- **Backend:** Python 3.11+, FastAPI, SQLAlchemy, Alembic
-- **Database:** PostgreSQL (Incidents, Users), Redis (Rate limiting, temporal state)
-- **Frontend:** React, TypeScript, TailwindCSS, Framer Motion, Three.js, Lucide Icons
-- **DevOps:** Docker, Docker Compose, Nginx
-- **Security:** JWT Authentication, RBAC
-
----
-
-## Quick Start
-
-### Prerequisites
-
-- Docker & Docker Compose
-- Node.js 20+ (for local frontend development)
-- Python 3.11+ (for local backend development)
-
-### Installation (Docker Recommended)
-
-Clone the repository:
-
-```bash
-git clone https://github.com/yourusername/GuardianAI.git
-cd GuardianAI
-```
+    VideoAgent --> ThreatAg
 
 Start the application using Docker Compose:
 
