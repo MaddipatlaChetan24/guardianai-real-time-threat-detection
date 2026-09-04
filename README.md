@@ -12,27 +12,7 @@ This project demonstrates a production-quality, multi-agent AI system designed t
 ---
 
 
-    subgraph "Micro-Agent Ecosystem (Google ADK & MCP)"
-        VideoAg
-
-```bash
-docker-compose up --build -d
-```
-
-The application will be available at:
-- **Dashboard:** `http://localhost:5173`
-- **API Docs:** `http://localhost:8000/docs`
-
----
-
-## Project Structure
-
-```
-GuardianAI/
-│
-├── agents/             # Google ADK Agent definitions and logic
-├── backend/            # FastAPI server, routers, and schemas
-├── frontend/           # React + Vite dashboard and UI components
+  omponents
 ├── mcp/                # Model Context Protocol tool definitions
 ├── models/             # YOLOv11 and ot
 - Audio analysis integration (e.g., breaking glass, screaming).
