@@ -11,33 +11,6 @@ This project demonstrates a production-quality, multi-agent AI system designed t
 
 ---
 
-## Overview
-
-Traditional CCTV systems rely purely on continuous human monitoring. Security personnel must track multiple screens, leading to cognitive fatigue where critical incidents (unauthorized access, loitering, violence, fire) go unnoticed until it's too late.
-
-**GuardianAI** solves this by employing an autonomous ecosystem of specialized AI agents. Instead of monolithic processing, GuardianAI employs a **Micro-Agent Architecture** where each agent executes specific responsibilities and communicates over the Model Context Protocol (MCP) using a shared context and environment.
-
----
-
-## Features
-
-| Feature | Description |
-|----------|-------------|
-| **Micro-Agent Architecture** | Specialized agents handle video analysis, threat detection, decisions, and notifications independently. |
-| **Model Context Protocol (MCP)** | Agents utilize tools (`camera_tool`, `screenshot_tool`) autonomously to verify events. |
-| **Explainable AI (XAI)** | The Decision Agent outputs a "Chain of Thought" reasoning block before escalating threat levels. |
-| **Real-Time Processing** | Asynchronous API Gateway via FastAPI handling REST and WebSockets. |
-| **Glassmorphism UI** | A beautiful, dynamic frontend built with Framer Motion, Three.js, and TailwindCSS. |
-
----
-
-## Architecture
-
-```mermaid
-flowchart TD
-    subgraph Environment
-        CCTV["CCTV / Camera Feeds"]
-    end
 
     subgraph "Micro-Agent Ecosystem (Google ADK & MCP)"
         VideoAgent["Video Analysis Agent<br>(YOLOv11 & DeepSORT)"]
