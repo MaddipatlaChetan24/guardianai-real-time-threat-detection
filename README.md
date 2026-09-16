@@ -18,12 +18,6 @@ This project demonstrates a production-quality, multi-agent AI system designed t
 
 ## Overview
 
-Traditional CCTV systems rely purely on continuous human monitoring. Security personnel must track multiple screens, leading to cognitive fatigue where critical incidents (unauthorized access, loitering, violence, fire) go unnoticed until it's too late.
-
-**GuardianAI** solves this by employing an autonomous ecosystem of specialized AI agents. Instead of monolithic processing, GuardianAI employs a **Micro-Agent Architecture** where each agent executes specific responsibilities and communicates over the Model Context Protocol (MCP) using a shared context and environment.
-
----
-
 ## Features
 
 | Feature | Description |
