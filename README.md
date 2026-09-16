@@ -17,19 +17,6 @@ This project demonstrates a production-quality, multi-agent AI system designed t
 ---
 
 ## Overview
-
-## Features
-
-| Feature | Description |
-|----------|-------------|
-| **Micro-Agent Architecture** | Specialized agents handle video analysis, threat detection, decisions, and notifications independently. |
-| **Model Context Protocol (MCP)** | Agents utilize tools (`camera_tool`, `screenshot_tool`) autonomously to verify events. |
-| **Explainable AI (XAI)** | The Decision Agent outputs a "Chain of Thought" reasoning block before escalating threat levels. |
-| **Real-Time Processing** | Asynchronous API Gateway via FastAPI handling REST and WebSockets. |
-| **Glassmorphism UI** | A beautiful, dynamic frontend built with Framer Motion, Three.js, and TailwindCSS. |
-
----
-
 ## Architecture
 
 ```mermaid
