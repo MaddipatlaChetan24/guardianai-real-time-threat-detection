@@ -29,13 +29,6 @@ class IncidentPayload(BaseModel):
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
-
-    redoc_url="/redoc",
-)
-
-# CORS — allow frontend origin
-app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:5173", "http://localhost:3000", "*"],
     allow_credentials=True,
