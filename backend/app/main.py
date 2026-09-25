@@ -8,15 +8,6 @@ WebSocket support for real-time dashboard updates.
 """
 
 from fastapi import FastAPI, HTTPException, Depends, WebSocket, WebSocketDisconnect
-from fastapi.middleware.cors import CORSMiddleware
-from sqlalchemy.orm import Session
-import uvicorn
-import logging
-from datetime import datetime
-from typing import List, Dict
-import asyncio
-import json
-
 from .database.connection import db_manager
 from .models.database_models import User, Camera, Incident, Alert, IncidentReport, create_tables, ThreatLevel, IncidentStatus
 
