@@ -36,12 +36,6 @@ app = FastAPI(
     description="Multi-Agent Intelligent Surveillance and Event Detection System",
     version="1.0.0",
     docs_url="/docs",
-    redoc_url="/redoc",
-)
-
-# CORS — allow frontend origin
-app.add_middleware(
-    CORSMiddleware,
     allow_origins=["http://localhost:5173", "http://localhost:3000", "*"],
     allow_credentials=True,
     allow_methods=["*"],
