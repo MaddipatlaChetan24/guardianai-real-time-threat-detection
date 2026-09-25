@@ -23,17 +23,6 @@ from .models.database_models import User, Camera, Incident, Alert, IncidentRepor
 from pydantic import BaseModel
 class IncidentPayload(BaseModel):
     camera_id: int
-    threat_level: str
-    summary: str
-    allow_origins=["http://localhost:5173", "http://localhost:3000", "*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
-
-# ── Dependency ────────────────────────────────────────────────────────────────
-
 def get_db():
     """FastAPI dependency that provides a SQLAlchemy session."""
     session = db_manager.get_db_session()
