@@ -31,11 +31,6 @@ class IncidentPayload(BaseModel):
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-app = FastAPI(
-    title="GuardianAI",
-    description="Multi-Agent Intelligent Surveillance and Event Detection System",
-    version="1.0.0",
-    docs_url="/docs",
     redoc_url="/redoc",
 )
 
