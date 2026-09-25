@@ -25,17 +25,6 @@ class IncidentPayload(BaseModel):
     camera_id: int
     threat_level: str
     summary: str
-    detected_objects: List[str]
-
-# Configure logging
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
-
-app = FastAPI(
-    title="GuardianAI",
-    description="Multi-Agent Intelligent Surveillance and Event Detection System",
-    version="1.0.0",
-    docs_url="/docs",
     allow_origins=["http://localhost:5173", "http://localhost:3000", "*"],
     allow_credentials=True,
     allow_methods=["*"],
