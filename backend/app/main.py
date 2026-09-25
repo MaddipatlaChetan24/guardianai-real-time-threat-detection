@@ -159,21 +159,6 @@ async def get_cameras(db: Session = Depends(get_db)):
             "resolution": "1080p"
         })
     return res
-
-
-@app.get("/cameras/{camera_id}", tags=["Cameras"])
-async def get_camera(camera_id: int, db: Session = Depends(get_db)):
-    """Get a specific camera by ID."""
-    c = db.query(Camera).filter(Camera.id == camera_id).first()
-    if not c:
-        raise HTTPException(status_code=404, detail=f"Camera {camera_id} not found")
-    return {
-        "id": c.id,
-        "name": c.name,
-        "location": c.location,
-        "status": "online" if c.is_active else "offline",
-        "threatLevel": "normal",
-        "fps": 30 if c.is_active else 0,
         "resolution": "1080p"
     }
 
