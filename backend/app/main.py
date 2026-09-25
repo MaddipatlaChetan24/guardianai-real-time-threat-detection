@@ -27,16 +27,6 @@ def get_db():
     """FastAPI dependency that provides a SQLAlchemy session."""
     session = db_manager.get_db_session()
     try:
-        yield session
-    finally:
-        session.close()
-
-
-# ── WebSocket Connection Manager ─────────────────────────────────────────────
-
-class ConnectionManager:
-    """Manages active WebSocket connections for live dashboard updates."""
-
     def __init__(self) -> None:
         self.active_connections: List[WebSocket] = []
 
