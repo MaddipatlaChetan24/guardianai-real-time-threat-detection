@@ -23,10 +23,48 @@ from .models.database_models import User, Camera, Incident, Alert, IncidentRepor
 from pydantic import BaseModel
 class IncidentPayload(BaseModel):
     camera_id: int
+    threat_level: str
+    summary: str
+    detected_objects: List[str]
+
+# Configure logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+app = FastAPI(
+    title="GuardianAI",
+    description="Multi-Agent Intelligent Surveillance and Event Detection System",
+    version="1.0.0",
+    docs_url="/docs",
+    redoc_url="/redoc",
+)
+
+# CORS — allow frontend origin
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173", "http://localhost:3000", "*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
+# ── Dependency ────────────────────────────────────────────────────────────────
+
 def get_db():
     """FastAPI dependency that provides a SQLAlchemy session."""
     session = db_manager.get_db_session()
     try:
+        yield session
+    finally:
+        session.close()
+
+
+# ── WebSocket Connection Manager ─────────────────────────────────────────────
+
+class ConnectionManager:
+    """Manages active WebSocket connections for live dashboard updates."""
+
     def __init__(self) -> None:
         self.active_connections: List[WebSocket] = []
 
@@ -159,6 +197,21 @@ async def get_cameras(db: Session = Depends(get_db)):
             "resolution": "1080p"
         })
     return res
+
+
+@app.get("/cameras/{camera_id}", tags=["Cameras"])
+async def get_camera(camera_id: int, db: Session = Depends(get_db)):
+    """Get a specific camera by ID."""
+    c = db.query(Camera).filter(Camera.id == camera_id).first()
+    if not c:
+        raise HTTPException(status_code=404, detail=f"Camera {camera_id} not found")
+    return {
+        "id": c.id,
+        "name": c.name,
+        "location": c.location,
+        "status": "online" if c.is_active else "offline",
+        "threatLevel": "normal",
+        "fps": 30 if c.is_active else 0,
         "resolution": "1080p"
     }
 
