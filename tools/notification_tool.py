@@ -26,12 +26,6 @@ async def notification_tool(params: Dict[str, Any]) -> Dict[str, Any]:
         attachments (list, optional): Paths to files to attach
         
     Returns:
-        Dict with result and status information
-    """
-    
-    try:
-        notif_type = params.get("type")
-        message = params.get("message", "")
         
         if not notif_type:
             raise ValueError("Notification type is required")
