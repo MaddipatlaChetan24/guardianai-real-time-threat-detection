@@ -33,6 +33,10 @@ class MCPConfig(BaseSettings):
     
     class Config:
         env_file = ".env"
+        env_file_encoding = "utf-8"
+
+# Create a global config instance
+mcp_config = MCPConfig()
 
 def get_mcp_settings() -> Dict[str, Any]:
     """Get all MCP settings as dictionary"""
